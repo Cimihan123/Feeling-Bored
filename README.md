@@ -1,5 +1,9 @@
 # Feeling-Bored
 
+Send wishes to someone whom matters to you utterly by terminal.
+Check the condition of  weather of any country you like to see by terminal.
+
+
 
 #Requirements
 
