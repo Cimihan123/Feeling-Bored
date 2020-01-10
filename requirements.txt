@@ -1,0 +1,6 @@
+pycurl
+BytesIO
+pyfiglet
+terminal_banner
+smtlib
+ssl
