@@ -7,7 +7,7 @@ Check the condition of  weather of any country you like to see by terminal.
 
 #Requirements
 
-pip3 install pyfigelt
+pip3 install pyfiglet
 
 pip3 install terminal_banner
 
