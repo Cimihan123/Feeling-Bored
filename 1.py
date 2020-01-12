@@ -4,19 +4,20 @@ import smtplib, ssl
 from io import BytesIO
 import pyfiglet
 import terminal_banner
+from getpass import getpass
 a=pyfiglet.figlet_format("BORING")
 b=terminal_banner.Banner(a)
-print(b)
+print("\033[1;34;40m ",b)
 
 
 
 print("Select one of the options: \n")
-list1={"1":"1.Birthday","2":"2.Good Night","3":"3.Anniversery","4":"4.Good Morning","5":"5.Weather"}
+list1={"1":"\033[1;33;40m 1.Birthday","2":"2.Good Night","3":"3.Anniversery","4":"4.Good Morning","5":"5.Weather"}
 for key,value in list1.items():
     print(value)
 
 print("\nenter one of the hai!!")
-users=str(input("\nWhat is your choice :\n"))
+users=str(input("\n\033[1;32;40m What is your choice :\n"))
 if users==str("birthday") or users=="1" or users==str("Birthday") or users==str("bornday"):
     a=random.choice(list(open('birthday.txt')))
     print(terminal_banner.Banner(a))
@@ -31,14 +32,14 @@ if users==str("birthday") or users=="1" or users==str("Birthday") or users==str(
         port = 587  # For starttls
         sender_email =input("Sender email: ")
         receiver_email=input("Receiver email: ")
-        password = input("Type sender password and press enter: ")
+        password = getpass("Type sender password and press enter: ")
 
         # Create a secure SSL context
         context = ssl.create_default_context()
 
         # Try to log in to server and send email
         try:
-            with smtplib.SMTP(smtp_server, port,) as server:
+            with smtplib.SMTP(smtp_server, port) as server:
                 server.ehlo() # Can be omitted
                 server.starttls(context=context) # Secure the connection
                 server.ehlo() # Can be omitted
@@ -75,14 +76,14 @@ if users=="goodnight"or users=="2"or users=="w" or users=="GoodNight" or users==
         port = 587  # For starttls
         sender_email =input("Sender email: ")
         receiver_email=input("Receiver email: ")
-        password = input("Type sender password and press enter: ")
+        password = getpass("Type sender password and press enter: ")
 
         # Create a secure SSL context
         context = ssl.create_default_context()
 
         # Try to log in to server and send email
         try:
-          with smtplib.SMTP(smtp_server, port,) as server:
+          with smtplib.SMTP(smtp_server, port) as server:
                 server.ehlo() # Can be omitted
                 server.starttls(context=context) # Secure the connection
                 server.ehlo() # Can be omitted
@@ -114,14 +115,14 @@ if users=="anniversary" or users=="3" or users=="Anniversary" or users=="ANNIVER
         port = 587  # For starttls
         sender_email =input("Sender email: ")
         receiver_email=input("Receiver email: ")
-        password = input("Type sender password and press enter: ")
+        password = getpass("Type sender password and press enter: ")
 
         # Create a secure SSL context
         context = ssl.create_default_context()
 
         # Try to log in to server and send email
         try:
-          with smtplib.SMTP(smtp_server, port,) as server:
+          with smtplib.SMTP(smtp_server, port) as server:
                 server.ehlo() # Can be omitted
                 server.starttls(context=context) # Secure the connection
                 server.ehlo() # Can be omitted
@@ -161,14 +162,14 @@ if users=="goodmorning" or users=="4" or users=="Goodmorning" or users=="GM" or 
         port = 587  # For starttls
         sender_email =input("Sender email: ")
         receiver_email=input("Receiver email: ")
-        password = input("Type Sender password and press enter: ")
+        password = getpass("Type Sender password and press enter: ")
 
         # Create a secure SSL context
         context = ssl.create_default_context()
 
         # Try to log in to server and send email
         try:
-          with smtplib.SMTP(smtp_server, port,) as server:
+          with smtplib.SMTP(smtp_server, port) as server:
                 server.ehlo() # Can be omitted
                 server.starttls(context=context) # Secure the connection
                 server.ehlo() # Can be omitted
@@ -199,8 +200,8 @@ if users=="weather" or users=="5" or users=="Weather" :
     b_obj = BytesIO() 
     crl = pycurl.Curl() 
 
-    print("what is your country?\n")
-    user=input()   
+    
+    user=input("write your country/city name?\n")   
     # Set URL value
     crl.setopt(crl.URL, 'https://wttr.in/' + user)
 
